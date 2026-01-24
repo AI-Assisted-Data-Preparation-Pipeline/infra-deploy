@@ -14,23 +14,23 @@ echo "📂 Base dir: $BASE_DIR"
 # =========================
 # .env check
 # =========================
-if [ ! -f "$BASE_DIR/.env" ]; then
+if [ ! -f "$INFRA_DIR/.env" ]; then
   echo "❌ .env file not found"
   exit 1
 fi
 
-if [ ! -f "$BASE_DIR/.env.sample" ]; then
+if [ ! -f "$INFRA_DIR/.env.sample" ]; then
   echo "❌ .env.sample file not found"
   exit 1
 fi
 
 echo "🔍 Checking .env variables..."
 
-REQUIRED_KEYS=$(grep -vE '^\s*#|^\s*$' "$BASE_DIR/.env.sample" | cut -d= -f1)
+REQUIRED_KEYS=$(grep -vE '^\s*#|^\s*$' "$INFRA_DIR/.env.sample" | cut -d= -f1)
 MISSING=0
 
 for key in $REQUIRED_KEYS; do
-  if ! grep -q "^$key=" "$BASE_DIR/.env"; then
+  if ! grep -q "^$key=" "$INFRA_DIR/.env"; then
     echo "❌ Missing env var: $key"
     MISSING=1
   fi
@@ -58,7 +58,7 @@ git pull origin dev
 # Docker compose
 # =========================
 echo "🚀 Docker compose up"
-cd "$BASE_DIR"
+cd "$INFRA_DIR"
 docker compose up -d --build
 
 echo "🎉 Deploy completed successfully"
