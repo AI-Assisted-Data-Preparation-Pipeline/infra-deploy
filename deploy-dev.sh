@@ -4,9 +4,10 @@ set -e
 # =========================
 # Path setup
 # =========================
-BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
-ORCH_DIR="$BASE_DIR/../orchestrator"
-AI_DIR="$BASE_DIR/../ai-engine"
+INFRA_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(cd "$INFRA_DIR/.." && pwd)"
+ORCH_DIR="$ROOT_DIR/orchestrator"
+AI_DIR="$ROOT_DIR/ai-engine"
 
 echo "📂 Base dir: $BASE_DIR"
 
