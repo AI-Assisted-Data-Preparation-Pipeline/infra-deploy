@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  orchestrator:
+    build: ./orchestrator
+    container_name: orchestrator
+    restart: always
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+
+  ai-engine:
+    build: ./ai-engine
+    container_name: ai-engine
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+
+volumes:
+  mysql_data:
