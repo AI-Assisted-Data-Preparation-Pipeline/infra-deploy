@@ -47,11 +47,11 @@ echo "✅ .env validation passed"
 # =========================
 echo "📦 Pull orchestrator"
 cd "$ORCH_DIR"
-git pull origin main
+git pull origin dev
 
 echo "📦 Pull ai-engine"
 cd "$AI_DIR"
-git pull origin main
+git pull origin dev
 
 # =========================
 # Docker compose
