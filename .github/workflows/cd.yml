@@ -1,0 +1,21 @@
+name: Dev CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: SSH to dev server & run deploy
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USER }}
+          key: ${{ secrets.DEV_SERVER_KEY }}
+          script: |
+            cd ~/jw/preparation_pipeline/infra-deploy
+            git pull origin main
+            ./deploy-dev.sh
