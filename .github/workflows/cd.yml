@@ -15,6 +15,7 @@ jobs:
           host: ${{ secrets.DEV_SERVER_HOST }}
           username: ${{ secrets.DEV_SERVER_USER }}
           key: ${{ secrets.DEV_SERVER_KEY }}
+          port: ${{ secrets.DEV_SERVER_SSH_PORT }}
           script: |
             cd ~/jw/preparation_pipeline/infra-deploy
             git pull origin main
