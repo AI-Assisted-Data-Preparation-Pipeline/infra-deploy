@@ -19,14 +19,14 @@ if [ ! -f "$BASE_DIR/.env" ]; then
   exit 1
 fi
 
-if [ ! -f "$BASE_DIR/.env.sample" ]; then
-  echo "❌ .env.sample file not found"
+if [ ! -f "$BASE_DIR/.env.example" ]; then
+  echo "❌ .env.example file not found"
   exit 1
 fi
 
 echo "🔍 Checking .env variables..."
 
-REQUIRED_KEYS=$(grep -vE '^\s*#|^\s*$' "$BASE_DIR/.env.sample" | cut -d= -f1)
+REQUIRED_KEYS=$(grep -vE '^\s*#|^\s*$' "$BASE_DIR/.env.example" | cut -d= -f1)
 MISSING=0
 
 for key in $REQUIRED_KEYS; do
