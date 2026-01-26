@@ -17,6 +17,6 @@ jobs:
           password: ${{ secrets.DEV_SERVER_PASSWORD }}
           port: ${{ secrets.DEV_SERVER_SSH_PORT }}
           script: |
-            cd ~/jw/preparation_pipeline/infra-deploy
+            cd ~/infra-deploy
             git pull origin main
             ./deploy-dev.sh
