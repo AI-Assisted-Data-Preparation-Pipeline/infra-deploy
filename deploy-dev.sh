@@ -44,6 +44,12 @@ fi
 echo "✅ .env validation passed"
 
 # =========================
+# Build worker image
+# =========================
+echo "🐳 Build worker image"
+docker build -t worker:latest ./worker
+
+# =========================
 # Git pull
 # =========================
 echo "📦 Pull orchestrator"
