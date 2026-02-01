@@ -18,5 +18,7 @@ jobs:
           port: ${{ secrets.DEV_SERVER_SSH_PORT }}
           script: |
             cd ~/infra-deploy
-            git pull origin main
+            git fetch origin
+            git checkout -f origin/main
+            chmod +x deploy-dev.sh
             ./deploy-dev.sh
