@@ -9,7 +9,7 @@ ROOT_DIR="$(cd "$INFRA_DIR/.." && pwd)"
 ORCH_DIR="$ROOT_DIR/orchestrator"
 AI_DIR="$ROOT_DIR/ai-engine"
 
-echo "📂 Base dir: $BASE_DIR"
+echo "📂 Root dir: $ROOT_DIR"
 
 # =========================
 # .env check
