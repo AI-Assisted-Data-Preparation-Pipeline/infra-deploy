@@ -57,6 +57,7 @@ services:
     ports:
       - "${ORCH_PORT}:8080"
     volumes:
+      - ${WORKER_VOLUME_ABSOLUTE_PATH}:${WORKER_VOLUME_ABSOLUTE_PATH}
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
